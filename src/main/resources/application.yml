@@ -1,0 +1,17 @@
+server:
+  port: 9000
+spring:
+  profiles:
+    active: local
+  config:
+    import: "configserver:http://localhost:9100" # config server url
+  cloud:
+    config:
+      name: config # config name
+      profile: local # config sub name
+      label: main # branch name
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh # refresh
